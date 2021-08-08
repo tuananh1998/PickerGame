@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.3, y: -59.1}
+  m_AnchoredPosition: {x: 12, y: -59.1}
   m_SizeDelta: {x: 269, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395155776
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 590054967}
   - component: {fileID: 590054966}
   m_Layer: 0
-  m_Name: mega_win
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.3, y: -282.1}
+  m_AnchoredPosition: {x: 2, y: -282.1}
   m_SizeDelta: {x: 225, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174661801
@@ -1011,6 +1011,7 @@ MonoBehaviour:
   StampCount: {fileID: 1213826000}
   StampObj: {fileID: 395155774}
   WiningEff: {fileID: 145038, guid: cd5f4991036ac41349730a5a6b2afee1, type: 3}
+  gameConstants: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
 --- !u!4 &1722199150
 Transform:
   m_ObjectHideFlags: 0

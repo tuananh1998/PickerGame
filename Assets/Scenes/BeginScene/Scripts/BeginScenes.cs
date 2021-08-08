@@ -1,30 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Scenes.ObjectData;
 
-public class BeginScenes : MonoBehaviour
+namespace Scenes.BeginScenes
 {
-    [SerializeField]
-    private Text Coints;
-    bool isFirst = true;
-    public void OnPlay()
+    public class BeginScenes : MonoBehaviour
     {
-        SceneManager.LoadScene(GameDesignFrontEndConstants.PlayScenes);
-    }
+        [SerializeField]
+        private Text Coints;
 
-    public void OnShop()
-    {
-        SceneManager.LoadScene(GameDesignFrontEndConstants.ShopScenes);
-    }
+        [SerializeField]
+        private AudioData audioData;
 
-    void Start()
-    {
-        if (isFirst && PlayerPrefs.GetInt(GameDesignFrontEndConstants.FirstRewardKey) == 0)
+        [SerializeField]
+        private GameConstants gameConstants;
+
+        bool isFirst = true;
+        public void OnPlay()
         {
-            PlayerPrefs.SetInt(GameDesignFrontEndConstants.FirstRewardKey, 1);
-            PlayerPrefs.SetInt(GameDesignFrontEndConstants.CointKey, GameDesignFrontEndConstants.Coint);
-            isFirst = false;
+            SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
+            SceneManager.LoadScene(gameConstants.PlayScenes);
         }
-        Coints.text = PlayerPrefs.GetInt(GameDesignFrontEndConstants.CointKey) > GameDesignFrontEndConstants.MaxCoint ? GameDesignFrontEndConstants.FormatCoint : PlayerPrefs.GetInt(GameDesignFrontEndConstants.CointKey).ToString();
+
+        public void OnShop()
+        {
+            SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
+            SceneManager.LoadScene(gameConstants.ShopScenes);
+        }
+
+        void Start()
+        {
+            if (isFirst && PlayerPrefs.GetInt(gameConstants.FirstRewardKey) == 0)
+            {
+                PlayerPrefs.SetInt(gameConstants.FirstRewardKey, 1);
+                PlayerPrefs.SetInt(GameConstants.CointKey, gameConstants.Coint);
+                isFirst = false;
+            }
+            Coints.text = PlayerPrefs.GetInt(GameConstants.CointKey) > gameConstants.MaxCoint ? gameConstants.FormatCoint : PlayerPrefs.GetInt(GameConstants.CointKey).ToString();
+        }
     }
 }

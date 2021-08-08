@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659f4a92b569f48e6b547e8687c6da8a, type: 3}
-  m_Name: Game Design Front End Constants
+  m_Script: {fileID: 11500000, guid: 4250b851ae5bf45f89e33ab35d1004f4, type: 3}
+  m_Name: Game Constants
   m_EditorClassIdentifier: 

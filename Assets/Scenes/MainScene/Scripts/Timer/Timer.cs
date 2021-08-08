@@ -1,13 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Scenes.ObjectData;
 
 public class Timer : MonoBehaviour
 {
     #region Serialize Field Unity
     [SerializeField]
     private Text timeleft;
+
+    [SerializeField]
+    private GameConstants gameConstants;
     #endregion
     float _totalTime, _waitTime;
     bool _isTimeLeft;
@@ -17,8 +20,8 @@ public class Timer : MonoBehaviour
     void Awake()
     {
         _isTimeLeft = true;
-        _totalTime = GameDesignFrontEndConstants.TimeLeft;
-        _waitTime = GameDesignFrontEndConstants.WaitTime;
+        _totalTime = gameConstants.TimeLeft;
+        _waitTime = gameConstants.WaitTime;
         //set default time
         UpdateText(_totalTime);
         IsEndRoundGame = false;

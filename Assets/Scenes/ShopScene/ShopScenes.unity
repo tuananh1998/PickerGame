@@ -451,8 +451,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 339416231}
   m_HandleRect: {fileID: 339416230}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.59189314
+  m_Value: 0.9922476
+  m_Size: 0.59165514
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 901705218}
   - component: {fileID: 901705217}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.136}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.8531799}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 668.45135}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &997681905
@@ -917,6 +917,7 @@ MonoBehaviour:
     type: 3}
   ShopScrollView: {fileID: 997681904}
   ShopPanel: {fileID: 1113811869}
+  gameConstants: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
 --- !u!1 &1307337966
 GameObject:
   m_ObjectHideFlags: 0

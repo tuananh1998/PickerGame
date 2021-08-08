@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using Scenes.ObjectData;
+using Scenes.MainScene;
 public class Shop : MonoBehaviour
 {
     #region Singlton:Shop
@@ -32,22 +33,23 @@ public class Shop : MonoBehaviour
 
 
     [SerializeField] GameObject ItemTemplate;
-    GameObject g;
+    GameObject gameObj;
     [SerializeField] Transform ShopScrollView;
     [SerializeField] GameObject ShopPanel;
+    [SerializeField] GameConstants gameConstants;
     Button buyBtn;
 
     void Start()
     {
         int len = ShopItemsList.Count;
-        var index = PlayerPrefs.GetInt(GameDesignFrontEndConstants.PurchasedKey);
+        var index = PlayerPrefs.GetInt(gameConstants.PurchasedKey);
         for (int i = 0; i < len; i++)
         {
-            g = Instantiate(ItemTemplate, ShopScrollView);
-            g.transform.GetChild(0).GetComponent<Image>().sprite = ShopItemsList[i].Image;
-            g.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ShopItemsList[i].Price.ToString();
-            buyBtn = g.transform.GetChild(2).GetComponent<Button>();
-            g.transform.GetChild(3).gameObject.SetActive(ShopItemsList[i].IsLocked);
+            gameObj = Instantiate(ItemTemplate, ShopScrollView);
+            gameObj.transform.GetChild(0).GetComponent<Image>().sprite = ShopItemsList[i].Image;
+            gameObj.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ShopItemsList[i].Price.ToString();
+            buyBtn = gameObj.transform.GetChild(2).GetComponent<Button>();
+            gameObj.transform.GetChild(3).gameObject.SetActive(ShopItemsList[i].IsLocked);
             if (index != 0 && i == index - 1)
             {
                 DisableBuyButton();
@@ -59,13 +61,13 @@ public class Shop : MonoBehaviour
 
     void OnShopItemBtnClicked(int itemIndex)
     {
-        if (Game.HasEnoughCoins(ShopItemsList[itemIndex].Price))
+        if (CoinController.HasEnoughCoins(ShopItemsList[itemIndex].Price))
         {
-            Game.UseCoins(ShopItemsList[itemIndex].Price);
+            CoinController.ChangeCoins(true, ShopItemsList[itemIndex].Price);
             //purchase Item
             ShopItemsList[itemIndex].IsPurchased = true;
 
-            PlayerPrefs.SetInt(GameDesignFrontEndConstants.PurchasedKey, itemIndex + 1);
+            PlayerPrefs.SetInt(gameConstants.PurchasedKey, itemIndex + 1);
 
             //disable the button
             buyBtn = ShopScrollView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
@@ -85,8 +87,7 @@ public class Shop : MonoBehaviour
     /*---------------------Close shop--------------------------*/
     public void CloseShop()
     {
-        // ShopPanel.SetActive(false);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(GameDesignFrontEndConstants.BeginScenes);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(gameConstants.BeginScenes);
     }
 
 }

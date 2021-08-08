@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: {fileID: 1228947263}
+  gameConstants: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
 --- !u!114 &2098322843
 MonoBehaviour:
   m_ObjectHideFlags: 0

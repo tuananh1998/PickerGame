@@ -243,6 +243,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256514647516268036, guid: e7c28a6966c9b4c0bb937c2c79157ecc,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c28a6966c9b4c0bb937c2c79157ecc, type: 3}
 --- !u!224 &183197793 stripped
@@ -365,7 +370,7 @@ GameObject:
   - component: {fileID: 427894025}
   - component: {fileID: 427894024}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,7 +712,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -951,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -1221,7 +1226,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -1749,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -1910,7 +1915,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -2357,7 +2362,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -2416,10 +2421,8 @@ MonoBehaviour:
   - {fileID: 1347133436}
   - {fileID: 1809044138}
   - {fileID: 576817173}
-  audioClips:
-  - {fileID: 8300000, guid: b3564d78781b0493890aa2758f6b6a3c, type: 3}
-  - {fileID: 8300000, guid: 6b3a21a1ee74643fea1cf5019a23dfaa, type: 3}
-  - {fileID: 8300000, guid: 625e6b68992e34a5c93a415cdabf1be3, type: 3}
+  audioSettings: {fileID: 11400000, guid: c63c550174f374d128dfe335d6a6df92, type: 2}
+  gameConstants: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
 --- !u!4 &1601593621
 Transform:
   m_ObjectHideFlags: 0
@@ -2461,8 +2464,8 @@ MonoBehaviour:
   - {fileID: 1005279379}
   - {fileID: 811114799}
   - {fileID: 1381169910}
-  Colors: []
-  ballSetting: {fileID: 11400000, guid: 58fef6b5687f84f119acd1d4394f0968, type: 2}
+  ballSetting: {fileID: 11400000, guid: 8d07e3daa16804a7ba0e226cdfe7f7a3, type: 2}
+  gameConstants: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
 --- !u!1001 &1623818227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2608,7 +2611,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -2775,7 +2778,7 @@ PrefabInstance:
     - target: {fileID: 4824078296507239378, guid: 0b28ddc9c00c441ff9d16c504def2784,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ball, Assembly-CSharp
+      value: Scenes.MainScene.BallHandler.Ball, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28ddc9c00c441ff9d16c504def2784, type: 3}
@@ -2984,6 +2987,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1228947262, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -144.62994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228947262, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -57.52293
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228947262, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228947262, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.27000046
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228947263, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1513887804, guid: 68d099e7a801c47d2804370a9bcfaa8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

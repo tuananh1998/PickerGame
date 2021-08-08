@@ -16,7 +16,7 @@ TextureImporter:
     second: MR_UI_PBO_MirAccMacaw_DC
   - first:
       213: 7236282989482514718
-    second: MR_UI_PBO_Collections_DC_0
+    second: MR_UI_PBO_Stamp
   - first:
       213: 100718447527797419
     second: MR_UI_PBO_Collections_DC_1
@@ -99,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MR_UI_PBO_Collections_DC_0
+      name: MR_UI_PBO_Stamp
       rect:
         serializedVersion: 2
         x: 12
@@ -107,7 +107,7 @@ TextureImporter:
         width: 324
         height: 324
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,7 +128,7 @@ TextureImporter:
         width: 425
         height: 152
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +149,7 @@ TextureImporter:
         width: 148
         height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,7 +170,7 @@ TextureImporter:
         width: 131
         height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
