@@ -117,7 +117,7 @@ namespace Scenes.MainScene.BallHandler
                 var num = random.Next(gameConstants.MinNumber, gameConstants.MaxNumber);
                 item.Number = num;
                 item._Color = color;
-                var numGift = random.Next(gameConstants.minItemRandom, gameConstants.maxItemRandom);
+                var numGift = random.Next(gameConstants.MinItemRandom, gameConstants.MaxItemRandom);
                 if (numGift > 0)
                 {
                     if (numGift > 2)
@@ -125,10 +125,10 @@ namespace Scenes.MainScene.BallHandler
                         numGift = 0;
                     }
                     var itemType = (Enums.ItemsType)numGift;
-                    var amount = random.Next(gameConstants.minCointRandom, gameConstants.maxCointRandom);
+                    var amount = random.Next(gameConstants.MinCointRandom, gameConstants.MaxCointRandom);
                     BallItems ball = new BallItems(amount, itemType);
                     item.BallItem = ball;
-                    Debug.LogWarningFormat("Item type: {0} ", itemType);
+                    // Debug.LogWarningFormat("Item type: {0} ", itemType);
                     item.SetItemImage(item.SetBallItemImg(itemType));
                 }
             }

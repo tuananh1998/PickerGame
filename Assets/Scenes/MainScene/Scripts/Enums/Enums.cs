@@ -13,5 +13,13 @@
         Stamp = 1,
         WrongClick = 2,
         CommonClick,
+        Outro,
+        Bgm,
+    }
+
+    public enum SoundStatus
+    {
+        Normal,
+        Mute = 1,
     }
 }

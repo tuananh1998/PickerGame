@@ -12,3 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4250b851ae5bf45f89e33ab35d1004f4, type: 3}
   m_Name: Game Constants
   m_EditorClassIdentifier: 
+  TimeLeft: 30
+  MinNumber: 1
+  MaxNumber: 50
+  WaitTime: 0.5
+  SpinerTime: 2
+  StampCountKey: StampCount
+  CoinCountKey: CoinCount
+  BeginScenes: BeginScenes
+  PlayScenes: MainScene
+  SummaryScenes: EndScenes
+  ShopScenes: ShopScenes
+  Coint: 500
+  PurchasedKey: Purchased
+  MaxCoint: 9999999
+  FormatCoint: 999999+
+  FirstRewardKey: FirstReward
+  MaxCointRandom: 50
+  MinCointRandom: 5
+  MinItemRandom: 0
+  MaxItemRandom: 5
+  MuteSoundColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 1}
+  NormalSoundColor: {r: 1, g: 1, b: 1, a: 1}

@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 5120863152441829180}
   - component: {fileID: 8699985951276820547}
   - component: {fileID: 6111873342263227473}
-  - component: {fileID: 8929566032226414613}
   m_Layer: 5
   m_Name: SpinBall
   m_TagString: Untagged
@@ -168,17 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numText: {fileID: 6191808880114687239}
-  stamp: {fileID: 0}
   isStamp: 0
---- !u!114 &8929566032226414613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725478154899615513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e9d05eefa954523aeba7930f0761e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ballSetting: {fileID: 0}
+  ballItemImg: {fileID: 0}

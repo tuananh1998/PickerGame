@@ -17,6 +17,8 @@ namespace Scenes.ObjectData
         public float SpinerTime = 2f;
         [SerializeField]
         public string StampCountKey = "StampCount";
+        [SerializeField]
+        public string CoinCountKey = "CoinCount";
         public string BeginScenes = "BeginScenes";
         [SerializeField]
         public string PlayScenes = "MainScene";
@@ -37,13 +39,18 @@ namespace Scenes.ObjectData
         [SerializeField]
         public string FirstRewardKey = "FirstReward";
         [SerializeField]
-        public int maxCointRandom = 50;
+        public int MaxCointRandom = 50;
         [SerializeField]
-        public int minCointRandom = 5;
+        public int MinCointRandom = 5;
         [SerializeField]
-        public int minItemRandom = 0;
+        public int MinItemRandom = 0;
         [SerializeField]
-        public int maxItemRandom = 5;
-
+        public int MaxItemRandom = 5;
+        [SerializeField]
+        public const string MuteSoundKey = "MuteSound";
+        [SerializeField]
+        public Color MuteSoundColor;
+        [SerializeField]
+        public Color NormalSoundColor;
     }
 }

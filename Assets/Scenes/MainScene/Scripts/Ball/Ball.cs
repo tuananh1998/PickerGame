@@ -23,8 +23,8 @@ namespace Scenes.MainScene.BallHandler
         [SerializeField]
         private Text numText;
 
-        [SerializeField]
-        private GameObject stamp;
+        // [SerializeField]
+        // private GameObject stamp;
 
         [SerializeField]
         private bool isStamp = false;

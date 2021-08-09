@@ -37,6 +37,7 @@ public class Shop : MonoBehaviour
     [SerializeField] Transform ShopScrollView;
     [SerializeField] GameObject ShopPanel;
     [SerializeField] GameConstants gameConstants;
+    [SerializeField] AudioData audioData;
     Button buyBtn;
 
     void Start()
@@ -87,6 +88,7 @@ public class Shop : MonoBehaviour
     /*---------------------Close shop--------------------------*/
     public void CloseShop()
     {
+        SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameConstants.BeginScenes);
     }
 
