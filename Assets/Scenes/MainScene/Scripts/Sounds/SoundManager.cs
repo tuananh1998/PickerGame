@@ -2,11 +2,14 @@
 
 public static class SoundManager
 {
+    #region variable
     public static GameObject Instance;
     public static GameObject SoundInstance;
     public static AudioSource audioSource;
     public static AudioSource audioLoopSource;
+    #endregion
 
+    #region  Function
     public static void PlaySound(AudioClip audio)
     {
         if (Instance == null)
@@ -45,5 +48,5 @@ public static class SoundManager
     {
         return PlayerPrefs.GetInt(Scenes.ObjectData.GameConstants.MuteSoundKey) == (int)Enums.SoundStatus.Mute;
     }
-
+    #endregion
 }

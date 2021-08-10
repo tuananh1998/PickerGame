@@ -12,11 +12,14 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private GameConstants gameConstants;
     #endregion
+
+    #region variable
     float _totalTime, _waitTime;
     bool _isTimeLeft;
-
     public static bool IsEndRoundGame;
+    #endregion
 
+    #region Function
     void Awake()
     {
         _isTimeLeft = true;
@@ -51,4 +54,5 @@ public class Timer : MonoBehaviour
     {
         timeleft.text = time.ToString();
     }
+    #endregion
 }

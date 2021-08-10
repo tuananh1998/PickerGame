@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour
     }
 
     #endregion
-
+    #region  Serializable
     [System.Serializable]
     public class ShopItem
     {
@@ -27,19 +27,29 @@ public class Shop : MonoBehaviour
         public bool IsPurchased = false;
         public bool IsLocked = true;
     }
+    #endregion
+    #region SerializeField
+    [SerializeField]
+    GameObject ItemTemplate;
 
-    public List<ShopItem> ShopItemsList;
-    [SerializeField] Animator NoCoinsAnim;
+    [SerializeField]
+    Transform ShopScrollView;
 
+    [SerializeField]
+    GameObject ShopPanel;
 
-    [SerializeField] GameObject ItemTemplate;
-    GameObject gameObj;
-    [SerializeField] Transform ShopScrollView;
-    [SerializeField] GameObject ShopPanel;
-    [SerializeField] GameConstants gameConstants;
-    [SerializeField] AudioData audioData;
+    [SerializeField]
+    GameConstants gameConstants;
+
+    [SerializeField]
+    AudioData audioData;
+    #endregion
+    #region Variable
     Button buyBtn;
-
+    GameObject gameObj;
+    public List<ShopItem> ShopItemsList;
+    #endregion
+    #region Function
     void Start()
     {
         int len = ShopItemsList.Count;
@@ -91,5 +101,5 @@ public class Shop : MonoBehaviour
         SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameConstants.BeginScenes);
     }
-
+    #endregion
 }

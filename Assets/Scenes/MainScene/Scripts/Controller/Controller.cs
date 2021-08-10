@@ -35,10 +35,13 @@ namespace Scenes.MainScene
         private GameObject bingoObj;
 
         #endregion
+        #region Variable
         GameObject[] spinBalls;
         int _stampCount = 0;
         int _coinCount = 0;
         bool _isCheck1, _isCheck2, _isCheck3, _isCheck4, _isCheck5, _isCheck6, _isCheck7, _isCheck8 = false;
+        #endregion
+        #region Function
         void Start()
         {
             _isCheck1 = _isCheck2 = _isCheck3 = _isCheck4 = _isCheck5 = _isCheck6 = _isCheck7 = _isCheck8 = false;
@@ -241,4 +244,5 @@ namespace Scenes.MainScene
             SceneManager.LoadScene(gameConstants.BeginScenes);
         }
     }
+    #endregion
 }

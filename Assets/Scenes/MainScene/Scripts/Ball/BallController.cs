@@ -23,6 +23,8 @@ namespace Scenes.MainScene.BallHandler
         [SerializeField]
         private GameConstants gameConstants;
         #endregion
+
+        #region Function
         void Awake()
         {
             SpinBalls[0].gameObject.SetActive(false);
@@ -59,54 +61,6 @@ namespace Scenes.MainScene.BallHandler
             SpawnBallInColumn(BallColumn1, ballSetting.ballColor[0]);
             SpawnBallInColumn(BallColumn2, ballSetting.ballColor[1]);
             SpawnBallInColumn(BallColumn3, ballSetting.ballColor[2]);
-            // System.Random random = new System.Random();
-            // foreach (var item in BallColumn1)
-            // {
-            //     var num = random.Next(GameConstants.MinNumber, GameConstants.MaxNumber);
-            //     item.Number = num;
-            //     item._Color = ballSetting.ballColor[0];
-            //     var numGift = random.Next(0, 2);
-            //     if (numGift > 0)
-            //     {
-            //         var itemType = (Enums.ItemsType)numGift;
-            //         var amount = random.Next(10, 50);
-            //         BallItems ball = new BallItems(amount, itemType);
-            //         item.BallItem = ball;
-            //         item.SetItemImage(true, item.SetBallItemImg(itemType));
-            //     }
-            // }
-
-            // foreach (var item in BallColumn2)
-            // {
-            //     var num = random.Next(GameConstants.MinNumber, GameConstants.MaxNumber);
-            //     item.Number = num;
-            //     item._Color = ballSetting.ballColor[1];
-            //     var numGift = random.Next(0, 2);
-            //     if (numGift > 0)
-            //     {
-            //         var itemType = (Enums.ItemsType)numGift;
-            //         var amount = random.Next(10, 50);
-            //         BallItems ball = new BallItems(amount, itemType);
-            //         item.BallItem = ball;
-            //         item.SetItemImage(true, item.SetBallItemImg(itemType));
-            //     }
-            // }
-
-            // foreach (var item in BallColumn3)
-            // {
-            //     var num = random.Next(GameConstants.MinNumber, GameConstants.MaxNumber);
-            //     item.Number = num;
-            //     item._Color = ballSetting.ballColor[2];
-            //     var numGift = random.Next(0, 2);
-            //     if (numGift > 0)
-            //     {
-            //         var itemType = (Enums.ItemsType)numGift;
-            //         var amount = random.Next(10, 50);
-            //         BallItems ball = new BallItems(amount, itemType);
-            //         item.BallItem = ball;
-            //         item.SetItemImage(true, item.SetBallItemImg(itemType));
-            //     }
-            // }
         }
 
         public void SpawnBallInColumn(Ball[] balls, Color color)
@@ -134,4 +88,5 @@ namespace Scenes.MainScene.BallHandler
             }
         }
     }
+    #endregion
 }

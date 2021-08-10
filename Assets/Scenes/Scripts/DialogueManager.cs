@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
+    #region Variable
     public Text nameText;
     public Text dialogueText;
 
@@ -13,9 +14,15 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    public static System.Action OnPopupComplete;
+    #endregion
+
+    #region SerializeField
     [SerializeField]
     private GameObject blockImg;
+    #endregion
 
+    #region Function
     // Use this for initialization
     void Start()
     {
@@ -61,11 +68,17 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
-
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        OnPopupComplete += EndDialogue;
+    }
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
         blockImg.SetActive(false);
     }
-
+    #endregion
 }

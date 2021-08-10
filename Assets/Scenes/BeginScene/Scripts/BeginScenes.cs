@@ -7,6 +7,7 @@ namespace Scenes.BeginScenes
 {
     public class BeginScenes : MonoBehaviour
     {
+        #region  SerializeField
         [SerializeField]
         private Text Coints;
 
@@ -25,14 +26,27 @@ namespace Scenes.BeginScenes
         [SerializeField]
         private DialogueTrigger dialogue;
 
-        [SerializeField]
-        private Image blockImg;
+        // [SerializeField]
+        // private Image blockImg;
 
+        #endregion
+        #region Variable
         bool _isFirst = true, _isMute = false;
+        #endregion
+        #region Function
         public void OnPlay()
         {
-            OnPlayCommonUISound();
-            SceneManager.LoadScene(gameConstant.PlayScenes);
+            if (PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0)
+            {
+                // blockImg.gameObject.SetActive(PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
+                dialogue.gameObject.SetActive(PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
+                dialogue.TriggerDialogue();
+            }
+            else
+            {
+                OnPlayCommonUISound();
+                SceneManager.LoadScene(gameConstant.PlayScenes);
+            }
         }
 
         public void OnShop()
@@ -54,9 +68,6 @@ namespace Scenes.BeginScenes
             {
                 PlayerPrefs.SetInt(gameConstant.FirstRewardKey, 1);
                 PlayerPrefs.SetInt(GameConstants.CointKey, gameConstant.Coint);
-                blockImg.gameObject.SetActive(_isFirst && PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
-                dialogue.gameObject.SetActive(_isFirst && PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
-                dialogue.TriggerDialogue();
                 _isFirst = false;
             }
             Coints.text = PlayerPrefs.GetInt(GameConstants.CointKey) > gameConstant.MaxCoint ? gameConstant.FormatCoint : PlayerPrefs.GetInt(GameConstants.CointKey).ToString();
@@ -92,4 +103,5 @@ namespace Scenes.BeginScenes
         }
 
     }
+    #endregion
 }

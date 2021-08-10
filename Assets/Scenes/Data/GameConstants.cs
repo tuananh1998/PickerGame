@@ -5,6 +5,7 @@ namespace Scenes.ObjectData
     [CreateAssetMenu(menuName = "Menu/Create Game Constant")]
     public class GameConstants : ScriptableObject
     {
+        #region SerializeField
         [SerializeField]
         public int TimeLeft = 30;
         [SerializeField]
@@ -53,4 +54,5 @@ namespace Scenes.ObjectData
         [SerializeField]
         public Color NormalSoundColor;
     }
+    #endregion
 }
