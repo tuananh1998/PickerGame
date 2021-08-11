@@ -26,6 +26,9 @@ namespace Scenes.BeginScenes
         [SerializeField]
         private DialogueTrigger dialogue;
 
+        [SerializeField]
+        private GameObject dialogIntroduce;
+
         // [SerializeField]
         // private Image blockImg;
 
@@ -36,14 +39,16 @@ namespace Scenes.BeginScenes
         #region Function
         public void OnPlay()
         {
-            if (PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0)
+            if (PlayerPrefs.GetInt(gameConstant.FirstTimeKey) == 0)
             {
+                dialogIntroduce.gameObject.SetActive(true);
                 // blockImg.gameObject.SetActive(PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
-                dialogue.gameObject.SetActive(PlayerPrefs.GetInt(gameConstant.FirstRewardKey) == 0);
                 dialogue.TriggerDialogue();
+                PlayerPrefs.SetInt(gameConstant.FirstTimeKey, 1);
             }
             else
             {
+                dialogIntroduce.gameObject.SetActive(false);
                 OnPlayCommonUISound();
                 SceneManager.LoadScene(gameConstant.PlayScenes);
             }

@@ -157,6 +157,7 @@ MonoBehaviour:
   gameConstant: {fileID: 11400000, guid: 59494c5dabb294f988bdef69ffee082f, type: 2}
   BgmVolumn: 0.5
   dialogue: {fileID: 659216033}
+  dialogIntroduce: {fileID: 1741239109}
 --- !u!4 &34633913
 Transform:
   m_ObjectHideFlags: 0

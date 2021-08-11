@@ -49,9 +49,11 @@ namespace Scenes.MainScene
             _stampCount = 0;
             _coinCount = 0;
             InvokeRepeating("GetListSpinBalls", gameConstants.WaitTime, gameConstants.SpinerTime);
+
+            //Check Hint Item was purchased
             if (PlayerPrefs.GetInt(gameConstants.PurchasedKey) > 0)
             {
-                InvokeRepeating("HintBox", gameConstants.WaitTime, 0.25f);
+                InvokeRepeating("HintBox", gameConstants.WaitTime, 0.05f);
             }
         }
 
@@ -70,19 +72,6 @@ namespace Scenes.MainScene
         void GetListSpinBalls()
         {
             spinBalls = GameObject.FindGameObjectsWithTag(SpinBallTag);
-
-            if (CheckBingo() > 0)
-            {
-                // Debug.LogWarning("BINGO");
-                bingoObj.SetActive(true);
-                bingoObj.transform.DOScale(7f, 2f).OnComplete(() =>
-                {
-                    bingoObj.transform.localScale = 100f * Vector3.one;
-                    bingoObj.SetActive(false);
-                });
-                SoundManager.PlaySound(audioSettings.audioClips[(int)Enums.SoundId.Bingo]);
-
-            }
         }
 
         void HintBox()
@@ -132,6 +121,7 @@ namespace Scenes.MainScene
                             }
                         }
                         OnceBallBoxStamp(ball);
+                        isWrong = false;
                         if (CheckBingo() > 0)
                         {
                             // Debug.LogWarning("BINGO");
@@ -142,12 +132,6 @@ namespace Scenes.MainScene
                             });
                             SoundManager.PlaySound(audioSettings.audioClips[(int)Enums.SoundId.Bingo]);
                         }
-                    }
-
-                    isWrong = !(ball.IsHint || ball.Number == _spinBall.Number);
-                    if (!isWrong)
-                    {
-                        // exit it loop
                         break;
                     }
                 }
@@ -159,12 +143,6 @@ namespace Scenes.MainScene
                 }
             }
 
-        }
-
-        public void VisibleGameobject(GameObject gameObj, GameObject gameObj1)
-        {
-            gameObj.SetActive(false);
-            gameObj1.SetActive(false);
         }
 
         int CheckBingo()

@@ -53,6 +53,9 @@ namespace Scenes.ObjectData
         public Color MuteSoundColor;
         [SerializeField]
         public Color NormalSoundColor;
+        [SerializeField]
+        public string FirstTimeKey = "FirstTime";
+
     }
     #endregion
 }
