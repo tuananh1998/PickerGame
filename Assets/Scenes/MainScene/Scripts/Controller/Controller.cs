@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using Scenes.MainScene.BallHandler;
 using Scenes.ObjectData;
 using DG.Tweening;
+using System.Collections;
 
 namespace Scenes.MainScene
 {
@@ -48,7 +49,10 @@ namespace Scenes.MainScene
             _stampCount = 0;
             _coinCount = 0;
             InvokeRepeating("GetListSpinBalls", gameConstants.WaitTime, gameConstants.SpinerTime);
-            InvokeRepeating("HintBox", gameConstants.WaitTime, 0.25f);
+            if (PlayerPrefs.GetInt(gameConstants.PurchasedKey) > 0)
+            {
+                InvokeRepeating("HintBox", gameConstants.WaitTime, 0.25f);
+            }
         }
 
         void Update()
@@ -127,12 +131,7 @@ namespace Scenes.MainScene
                                 CoinController.ChangeCoins(false, ball.BallItem.Amount);
                             }
                         }
-                        ball.SetStamp(true);
-                        SoundManager.PlaySound(audioSettings.audioClips[(int)Enums.SoundId.Stamp]);
-                        ball.gameObject.GetComponent<Button>().interactable = false;
-                        ball.Number = 0;
-                        ball.GetComponent<Animator>().SetBool("IsStop", true);
-                        _stampCount++;
+                        OnceBallBoxStamp(ball);
                         if (CheckBingo() > 0)
                         {
                             // Debug.LogWarning("BINGO");
@@ -224,18 +223,27 @@ namespace Scenes.MainScene
 
         public void OnDebugCheatBingo(Button cheatBtn)
         {
-            cheatBtn.interactable = false;
-            CheatOnceBallBox(balls[0]);
-            CheatOnceBallBox(balls[3]);
-            CheatOnceBallBox(balls[5]);
+            // Use for Debug Bingo with use Timer Button
+            // cheatBtn.interactable = false;
+            // OnceBallBoxStamp(balls[0]);
+            // StartCoroutine(WaitStampAnim(1f, balls[3]));
+            // StartCoroutine(WaitStampAnim(1.5f, balls[5]));
+            // OnceBallBoxStamp(balls[5]);
+        }
+        IEnumerator WaitStampAnim(float duration, Ball ball)
+        {
+            yield return new WaitForSeconds(duration);
+            OnceBallBoxStamp(ball);
         }
 
-        public void CheatOnceBallBox(Ball ballBtn)
+        public void OnceBallBoxStamp(Ball ballBtn)
         {
             ballBtn.SetStamp(true);
+            SoundManager.PlaySound(audioSettings.audioClips[(int)Enums.SoundId.Stamp]);
+            ballBtn.gameObject.GetComponent<Button>().interactable = false;
             ballBtn.Number = 0;
-            ballBtn.GetComponent<Button>().interactable = false;
-            ballBtn.SetItemImage(null);
+            ballBtn.GetComponent<Animator>().SetBool("IsStop", true);
+            _stampCount++;
         }
 
         public void OnBack()
