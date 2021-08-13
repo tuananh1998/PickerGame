@@ -31,6 +31,7 @@ public class EndScenes : MonoBehaviour
     #region Function
     void Start()
     {
+        Time.timeScale = 1;
         SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.Outro]);
         int _stampCount = PlayerPrefs.GetInt(gameConstants.StampCountKey);
         int _coinCount = PlayerPrefs.GetInt(gameConstants.CoinCountKey);
@@ -39,13 +40,13 @@ public class EndScenes : MonoBehaviour
         stampObj.SetActive(_stampCount > 0);
         cointStampObj.SetActive(_coinCount > 0);
         OrganizationTransform(_coinCount > 0);
-        // WiningEff.Play();
+        PlayWinningEffect(winingEff, true);
     }
 
     public void OnRetry()
     {
         SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
-        // WiningEff.Stop();
+        PlayWinningEffect(winingEff, false);
         Time.timeScale = 1;
         SceneManager.LoadScene(gameConstants.PlayScenes);
     }
@@ -53,7 +54,7 @@ public class EndScenes : MonoBehaviour
     public void OnHome()
     {
         SoundManager.PlaySound(audioData.audioClips[(int)Enums.SoundId.CommonClick]);
-        // WiningEff.Stop();
+        PlayWinningEffect(winingEff, false);
         Time.timeScale = 1;
         SceneManager.LoadScene(gameConstants.BeginScenes);
     }
@@ -70,5 +71,18 @@ public class EndScenes : MonoBehaviour
             stampObj.transform.localPosition = new Vector3(stampObj.transform.localPosition.x, 0, stampObj.transform.localPosition.z);
         }
     }
+
+    public void PlayWinningEffect(GameObject winEff, bool isActive)
+    {
+        var winParticles = winEff.GetComponentsInChildren<ParticleSystem>();
+        foreach (var winParticle in winParticles)
+        {
+            if (isActive)
+                winParticle.Play();
+            else winParticle.Stop();
+        }
+    }
+
+
     #endregion
 }
